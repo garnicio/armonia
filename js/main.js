@@ -57,7 +57,7 @@ function init()
 	for (i=0; i<BRUSHES.length; i++)
 	{
 		imagen = document.createElement('img');
-		imagen.src = 'armonia/jpg/'+BRUSHES[i]+'.jpg';
+		imagen.src = 'jpg/'+BRUSHES[i]+'.jpg';
 		imagen.width = 43;
 		imagen.height = 43;
 		imagen.alt = '';
@@ -102,7 +102,7 @@ function init()
 	armonia.appendChild(herramientas);
 	
 	imagen_borrador = document.createElement('img');
-	imagen_borrador.src = 'armonia/jpg/borrador.jpg';
+	imagen_borrador.src = 'jpg/borrador.jpg';
 	imagen_borrador.width = 25;
 	imagen_borrador.height = 25;
 	imagen_borrador.alt = '';
@@ -114,7 +114,7 @@ function init()
 	document.getElementById(imagen_borrador.id).setAttribute("onclick", "javascript:pincel('borrador')");
 	
 	imagen_cuentagotas = document.createElement('img');
-	imagen_cuentagotas.src = 'armonia/jpg/cuentagotas.jpg';
+	imagen_cuentagotas.src = 'jpg/cuentagotas.jpg';
 	imagen_cuentagotas.width = 25;
 	imagen_cuentagotas.height = 25;
 	imagen_cuentagotas.alt = '';
@@ -140,7 +140,7 @@ function init()
 	
 	imagen_documento_nuevo = document.createElement('img');
 	imagen_documento_nuevo.id = 'documento_nuevo_imagen';
-	imagen_documento_nuevo.src = 'armonia/jpg/documento_nuevo.png';
+	imagen_documento_nuevo.src = 'jpg/documento_nuevo.png';
 	imagen_documento_nuevo.width = 46;
 	imagen_documento_nuevo.height = 60;
 	imagen_documento_nuevo.alt = '';
@@ -153,7 +153,7 @@ function init()
 	
 	imagen_guardar = document.createElement('img');
 	imagen_guardar.id = 'guardar_imagen';
-	imagen_guardar.src = 'armonia/jpg/guardar.png';
+	imagen_guardar.src = 'jpg/guardar.png';
 	imagen_guardar.width = 59;
 	imagen_guardar.height = 60;
 	imagen_guardar.alt = '';
