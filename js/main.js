@@ -57,7 +57,7 @@ function init()
 	for (i=0; i<BRUSHES.length; i++)
 	{
 		imagen = document.createElement('img');
-		imagen.src = 'jpg/'+BRUSHES[i]+'.jpg';
+		imagen.src = 'armonia/jpg/'+BRUSHES[i]+'.jpg';
 		imagen.width = 43;
 		imagen.height = 43;
 		imagen.alt = '';
@@ -102,7 +102,7 @@ function init()
 	armonia.appendChild(herramientas);
 	
 	imagen_borrador = document.createElement('img');
-	imagen_borrador.src = 'jpg/borrador.jpg';
+	imagen_borrador.src = 'armonia/jpg/borrador.jpg';
 	imagen_borrador.width = 25;
 	imagen_borrador.height = 25;
 	imagen_borrador.alt = '';
@@ -114,7 +114,7 @@ function init()
 	document.getElementById(imagen_borrador.id).setAttribute("onclick", "javascript:pincel('borrador')");
 	
 	imagen_cuentagotas = document.createElement('img');
-	imagen_cuentagotas.src = 'jpg/cuentagotas.jpg';
+	imagen_cuentagotas.src = 'armonia/jpg/cuentagotas.jpg';
 	imagen_cuentagotas.width = 25;
 	imagen_cuentagotas.height = 25;
 	imagen_cuentagotas.alt = '';
@@ -140,7 +140,7 @@ function init()
 	
 	imagen_documento_nuevo = document.createElement('img');
 	imagen_documento_nuevo.id = 'documento_nuevo_imagen';
-	imagen_documento_nuevo.src = 'jpg/documento_nuevo.png';
+	imagen_documento_nuevo.src = 'armonia/jpg/documento_nuevo.png';
 	imagen_documento_nuevo.width = 46;
 	imagen_documento_nuevo.height = 60;
 	imagen_documento_nuevo.alt = '';
@@ -153,7 +153,7 @@ function init()
 	
 	imagen_guardar = document.createElement('img');
 	imagen_guardar.id = 'guardar_imagen';
-	imagen_guardar.src = 'jpg/guardar.png';
+	imagen_guardar.src = 'armonia/jpg/guardar.png';
 	imagen_guardar.width = 59;
 	imagen_guardar.height = 60;
 	imagen_guardar.alt = '';
@@ -282,7 +282,9 @@ function init()
 
 	if (!brush)
 	{
-		brush = eval("new " + BRUSHES[0] + "(context)");
+		brush = eval("new " + BRUSHES[BRUSHES.length-1] + "(context)");
+		document.getElementById(BRUSHES[BRUSHES.length-1]+'_img').style.borderColor = '#990000';
+		document.getElementById('grosor1').style.backgroundColor = '#990000';
 	}
 	
 	window.addEventListener('mousemove', onWindowMouseMove, false);
@@ -492,6 +494,7 @@ function pincel(pincel)
 	{
 		document.getElementById(BRUSHES[i]+'_img').style.borderColor = '#CCC';
 	}
+	document.getElementById(pincel+'_img').style.borderColor = '#990000';
 	document.getElementById('pincel_borrador').style.borderColor = '#CCC';
 	if(pincel=='borrador')
 	{
@@ -521,8 +524,62 @@ function onMenuSave()
 function onMenuClear(){
 	context.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 	saveToLocalStorage();
-	//brush.destroy();
-	//brush = eval("new " + BRUSHES[0] + "(context)");
+	localStorage.removeItem("respaldo1");
+	localStorage.removeItem("respaldo2");
+	localStorage.removeItem("respaldo3");
+	localStorage.removeItem("respaldo4");
+	localStorage.removeItem("respaldo5");
+	localStorage.removeItem("respaldo6");
+	localStorage.removeItem("respaldo7");
+	localStorage.removeItem("respaldo8");
+	localStorage.removeItem("respaldo_f1");
+	localStorage.removeItem("respaldo_f2");
+	localStorage.removeItem("respaldo_f3");
+	localStorage.removeItem("respaldo_f4");
+	localStorage.removeItem("respaldo_f5");
+	localStorage.removeItem("respaldo_f6");
+	localStorage.removeItem("respaldo_f7");
+	localStorage.removeItem("respaldo_f8");
+	document.getElementById("respaldo_canvas_1").src = lienzo.toDataURL("image/png");
+	document.getElementById("respaldo_canvas_1").style.backgroundColor = 'white';
+	document.getElementById("respaldo_canvas_2").src = lienzo.toDataURL("image/png");
+	document.getElementById("respaldo_canvas_2").style.backgroundColor = 'white';
+	document.getElementById("respaldo_canvas_3").src = lienzo.toDataURL("image/png");
+	document.getElementById("respaldo_canvas_3").style.backgroundColor = 'white';
+	document.getElementById("respaldo_canvas_4").src = lienzo.toDataURL("image/png");
+	document.getElementById("respaldo_canvas_4").style.backgroundColor = 'white';
+	document.getElementById("respaldo_canvas_5").src = lienzo.toDataURL("image/png");
+	document.getElementById("respaldo_canvas_5").style.backgroundColor = 'white';
+	document.getElementById("respaldo_canvas_6").src = lienzo.toDataURL("image/png");
+	document.getElementById("respaldo_canvas_6").style.backgroundColor = 'white';
+	document.getElementById("respaldo_canvas_7").src = lienzo.toDataURL("image/png");
+	document.getElementById("respaldo_canvas_7").style.backgroundColor = 'white';
+	document.getElementById("respaldo_canvas_8").src = lienzo.toDataURL("image/png");
+	document.getElementById("respaldo_canvas_8").style.backgroundColor = 'white';
+	document.getElementById("canvas").style.backgroundColor = 'white';
+	localStorage.background_color_red = BACKGROUND_COLOR[0] = 250;
+	localStorage.background_color_green = BACKGROUND_COLOR[1] = 250;
+	localStorage.background_color_blue = BACKGROUND_COLOR[2] = 250;
+	document.getElementById("color_fondo").getContext("2d").fillStyle = 'rgb(250,250,250)';
+	document.getElementById("color_fondo").getContext("2d").fillRect(0, 0,document.getElementById("color_fondo").width,document.getElementById("color_fondo").height);
+	localStorage.brush_color_red = COLOR[0] = 0;
+	localStorage.brush_color_green = COLOR[1] = 0;
+	localStorage.brush_color_blue = COLOR[2] = 0;
+	document.getElementById("color_pincel").getContext("2d").fillStyle = 'rgb(0,0,0)';
+	document.getElementById("color_pincel").getContext("2d").fillRect(0, 0,document.getElementById("color_pincel").width,document.getElementById("color_pincel").height);
+	brush.destroy();
+	brush = eval("new " + BRUSHES[BRUSHES.length-1] + "(context)");
+	for (i=0; i<=BRUSHES.length-1; i++)
+	{
+		document.getElementById(BRUSHES[i]+'_img').style.borderColor = '#CCC';
+	}
+	document.getElementById(BRUSHES[BRUSHES.length-1]+'_img').style.borderColor = '#990000';
+	for (i=2; i<=10; i++)
+	{
+		document.getElementById('grosor'+i).style.backgroundColor = '#000000';
+	}
+	document.getElementById('grosor1').style.backgroundColor = '#990000';
+	BRUSH_SIZE = 1;
 }
 
 // CANVAS
