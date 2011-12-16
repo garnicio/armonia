@@ -20,6 +20,7 @@ colores.prototype =
 		this.container.style.marginLeft = '5px';
 		
 		this.foregroundColor = document.createElement("canvas");
+		this.foregroundColor.id = 'color_pincel';
 		this.foregroundColor.style.cursor = 'pointer';
 		this.foregroundColor.width = color_width;
 		this.foregroundColor.height = color_height;
@@ -30,6 +31,7 @@ colores.prototype =
 		this.setForegroundColor( COLOR );
 
 		this.backgroundColor = document.createElement("canvas");
+		this.backgroundColor.id = 'color_fondo';
 		this.backgroundColor.style.cursor = 'pointer';
 		this.backgroundColor.width = color_width;
 		this.backgroundColor.height = color_height;
